@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <a [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </a>
+    <mat-menu #menu="matMenu">
+      <a  routerLink="/perfil"  mat-menu-item>Perfil</a>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <span style="margin-left:20px">My App</span>
+    <span class="example-spacer"></span>
+    <a routerLink="/cart" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon  [matBadge]="numItem"  matBadgeColor="warn" matBadgeOverlap="false" class="demo-section"><span class="material-symbols-outlined" >
+        shopping_cart
+        </span></mat-icon>
+    </a>
+    <a *ngIf="!authActivated"  routerLink="/login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon > login</mat-icon>
+    </a>
+    <a *ngIf="authActivated"  (click)="logout()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon > logout</mat-icon>
+    </a>
+  </mat-toolbar>

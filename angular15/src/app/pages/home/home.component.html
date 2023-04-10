@@ -1,0 +1,27 @@
+<div class="container">
+   
+    <mat-card  *ngFor="let item of bookArray" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-subtitle>{{item.authorName}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{item.image}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+           Categoria: {{item.category.name}}
+          </p>
+        </mat-card-content>
+                  <h2>{{item.price }}€ </h2>
+
+        <mat-card-actions>
+            <div class="cantidad">
+                <button (click)="dec(item)" mat-button><mat-icon>remove</mat-icon></button>
+            <span>{{item.qty}}</span> 
+            <button (click)="inc(item)" mat-button><mat-icon>add</mat-icon></button>
+            </div>
+        
+            <button (click)="addtoCart(item)" class="addButton" mat-raised-button color="primary">Add to Cart</button>
+                  </mat-card-actions>
+      </mat-card>
+   </div>

@@ -1,0 +1,63 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> Img. </th>
+      <td mat-cell *matCellDef="let element"><img src="{{element.image}}" width="100px" alt="">  </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="qty">
+      <th mat-header-cell *matHeaderCellDef> Qty </th>
+      <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td  mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="subtotal" >
+      <th mat-header-cell *matHeaderCellDef> SubT </th>
+      <td mat-cell *matCellDef="let element"> {{element.price* element.qty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion" >
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element"> <mat-icon (click)="delete(element.id)">delete</mat-icon> </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  
+
+         <div class="total">
+    <mat-card-header>
+      <mat-card-title >Total: {{Total }} €</mat-card-title>
+
+    </mat-card-header>
+    <ng-container *ngIf="!ocultar"> 
+ <mat-card-actions >
+      <a (click)="comprar()" class="comprar" mat-raised-button color="primary">Buy</a>
+    <a  routerLink="/" mat-raised-button color="primary">Go Back</a>
+  <button mat-raised-button color="accent">Delete All</button>
+   
+    </mat-card-actions>
+
+    </ng-container>
+   
+ 
+ 
+  
+</div>
+    
+
+ 

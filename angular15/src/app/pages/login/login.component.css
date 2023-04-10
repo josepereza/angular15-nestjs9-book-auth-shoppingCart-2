@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+h2 {
+    width: 100%;
+    background-color: rgb(67, 146, 15);
+    color: aliceblue;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+       
+        width: 90%;
+    }
+  }
